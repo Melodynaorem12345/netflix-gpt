@@ -68,3 +68,110 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Setting Up Tailwind CSS in Create React App
+
+## Prerequisites
+- Node.js v16+
+- Create React App project
+
+## Installation Steps
+
+### 1. Install Tailwind CSS v3 (pinned versions)
+```bash
+npm install -D tailwindcss@3.4.17 postcss@8.4.47 autoprefixer@10.4.20
+```
+
+### 2. Generate Tailwind config
+```bash
+./node_modules/.bin/tailwindcss init -p
+```
+
+### 3. Create PostCSS config (important — do this manually)
+```bash
+cat > postcss.config.js << 'EOF'
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+EOF
+```
+
+### 4. Update `tailwind.config.js`
+```js
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+### 5. Replace `src/index.css` with
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### 6. Start the app
+```bash
+npm start
+```
+
+## ⚠️ Common Pitfalls
+- **Do not use Tailwind v4** — it is not compatible with CRA, use v3 only
+- **Always create `postcss.config.js` manually** — the `init -p` command may not generate it correctly
+- **Restart the dev server** after any config changes
+
+# Netflix GPT
+-create React App
+-Configured TailwindCss
+-Header
+-Routing of App
+-Login Form
+-signup Now
+-Form validation(email validation regex - https://saturncloud.io/blog/how-can-i-validate-an-email-address-using-a-regular-expression/)
+-useRef Hook
+-Firebase setup
+-deploying our app to production
+-Create Signup User Account
+-Implement Sign In User Api
+-Create Redux Store with userSlice
+-Implemented Signout
+-Update Profile 
+-Fetch from TMDB Movies
+-Bug Fix: Sign up user dispalyName and profile picture update
+-Bug Fix: if the user is not logged in Redirect /browse to Login Page and vice-versa
+-Unscribed to the onAuthStateChanged callback
+-Add hardcoded values to the constant file***
+-Register TMDB API & create an app & get access token
+-Get Data from TMDB now playing movies list API
+-Custom GHook for Now Playing Movies
+-Create movieSlice
+-Update Store with movies data
+-Planning for MainContainer & Secondary Container
+-Fetch Data for Trailer Video
+-Update Stor with Trailer Video Data
+-Embedded the Youtube Video and make it autoplay and mute
+-Tailwind Classes to amke it Main Container look awesome
+
+
+### Features
+Login/Signup
+    -Sign In/Sign up Form
+    -redirect to Browse Page
+-Browse (after authentication)
+    -Header
+    -Main Movie
+        -Tailer in Background
+        -Title & Description
+        -Movie Suggestions
+            -MovieList * N
+-NetflixGPT
+    -Search Bar
+    -Movie Suggestions
+
