@@ -164,6 +164,7 @@ npm start
 -TMDB Image CDN URL
 -MAde the Browse page amazing with Tailwind CSS
 -usePopularMovies Custom Hook
+-GPT Search Feature
 
 
 ### Features
